@@ -1,0 +1,80 @@
+
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background: linear-gradient(45deg, #35943C, #8FFF96); /* Updated colors */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+section {
+    padding: 40px;
+}
+
+section#about {
+    background-color: #fff;
+}
+
+section#projects {
+    background-color: #67E06F; 
+}
+
+section#contact {
+    background-color: #fff;
+}
+
+footer {
+    background-color: #942650;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer a {
+    color: #E06796;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+    nav li {
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    nav li {
+        margin: 0 10px;
+    }
+}
