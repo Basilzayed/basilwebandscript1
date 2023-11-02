@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Title Here</title>
+  <!-- CSS files -->
+  <link rel='stylesheet' href='/Content/app.css' />
+  <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="@fortawesome/fontawesome-free/css/all.min.css">
+  <!-- Your additional CSS styles -->
+  <style>
+    /* Additional CSS styles */
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/home"><i class="fa-solid fa-house"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/about"><i class="fa-solid fa-address-card"></i> About Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/projects"><i class="fa-solid fa-diagram-project"></i> Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/contact"><i class="fa-solid fa-phone"></i> Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Main content -->
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Welcome to the Home page</h1>
+    </div>
+  </div>
+  
+  <!-- About Me Section -->
+  <section id="about" style="display: none;">
+    <h2>About Me</h2>
+    <!-- Your image and video content goes here -->
+    <img src="fp.jpg" alt="Basil Zayed" style="width: 200px; height: auto;">
+    <p> Hi, I hope whoever is reading this is doing well. My name is Basil Zayed, attending Web and Script Programming. I'm a second-year student at Ontario Tech University, majoring in Technology Management for (IT).</p>
+    <video controls poster="iv.jpg" width="320" height="240">
+      <source src="iv.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+  
+  <!-- Projects Section -->
+  <section id="projects" style="display: none;">
+    <h2>Projects</h2>
+    <pre><code>
+print("Pick a mathematical method")
+print("- Add")
+print("- Subtract")
+print("- Multiply")
+print("- Divide")
+print("- Exponent")
+
+while True:
+    # Take input from the user
+    choice = input("Enter mathematical method (add/subtract/multiply/divide/exponent/): ")
+    
+    # Check if method is one of the five methods
+    if choice in ('add', 'subtract', 'multiply', 'divide', 'exponent'):
+        number1 = int(input("Input a number: "))
+        number2 = int(input("Input a second number: "))
+
+        if choice == 'add':
+            print(number1, "+", number2, "=", (number1 + number2))
+            
+        if choice == 'subtract':
+            print(number1, "-", number2, "=", (number1 - number2))
+            
+        if choice == 'multiply':
+            print(number1, "*", number2, "=", (number1 * number2))
+            
+        if choice == 'divide':
+            print(number1, "/", number2, "=", (number1 / number2))
+            
+        if choice == 'exponent':
+            x = 1
+            for n in range(number2):
+                x = x * number2
+            print(x)
+    </code></pre>
+  </section>
+  
+  <!-- Contact Form (initially hidden) -->
+  <div class="container mt-4" id="contactForm" style="display: none;">
+    <h2>Contact Us</h2>
+    <form action="mailto:basilzayed88@gmail.com" method="post" enctype="text/plain">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone">
+      <label for="comments">Comments:</label>
+      <textarea id="comments" name="comments" rows="4" required></textarea>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+  
+ <!-- JavaScript to handle section visibility -->
+<script>
+  function handleSectionClick(sectionId, headingText) {
+    document.querySelectorAll('section').forEach(sec => {
+      sec.style.display = 'none';
+    });
+    document.getElementById(sectionId).style.display = 'block';
+    document.querySelector('.jumbotron h1').innerText = headingText;
+  }
+
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const href = this.getAttribute('href');
+      if (href === '/home') {
+        handleSectionClick('home', 'Welcome to the Home page');
+      } else if (href === '/about') {
+        handleSectionClick('about', 'Welcome to the About Me page');
+      } else if (href === '/projects') {
+        handleSectionClick('projects', 'Welcome to the Projects page');
+      } else if (href === '/contact') {
+        handleSectionClick('contactForm', 'Welcome to the Contact Us page');
+      }
+    });
+  });
+</script>
+
+  
+  <!-- Additional script files -->
+  <script src="/scripts/app.js"></script>
+  <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/jquery/dist/jquery.min.js"></script>
+  
+  <!-- Footer -->
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+      <span class="navbar-text">
+        &copy; Basil Zayed
+        <a href="https://github.com/Basilzayed/basilwebandscript1.git" class="text-white ms-2">GitHub: https://github.com/Basilzayed/basilwebandscript1.git</a>
+      </span>
+    </div>
+  </nav>
+</body>
+</html>
